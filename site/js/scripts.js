@@ -1,29 +1,50 @@
-import {peopleArray} from './modules/getPeopleArray.js';
-import reorderedPeopleArray from './modules/reorderedPeopleArray.js';
-import dividedPeopleArray from './modules/dividedPeopleArray.js';  
-import {createVaccineGroup} from './vaccineGroupConstructor.js';
+import createPeopleListData from './modules/createPeopleListData.js';
+import createNode from './modules/createNode.js';
+import {getTableTitle, getSinglePersonHTML, getDayGroupHTML} from './modules/getElementsHTMLStrings.js';
 
 window.addEventListener('load',()=>{
     
-    //create empty array;
-    let arrayGroup = [];
+    // getting final data (array of objects)
+    const days = createPeopleListData();
     
-    //turns into reordered json array;
-    arrayGroup = (reorderedPeopleArray(peopleArray));
+    //#region now it's possible to handle the objects;
+    // console.table(data[0]);
+    // console.table(data[1]);
+    // console.table(data[2]);
+    // console.table(data[3]);
     
-    //divides itself into 4 equal sized arrays;
-    arrayGroup = dividedPeopleArray(arrayGroup, 4);
+    //foreach 'people array' insie 'days' array,
+    for (let i = 0; i < days.length; i++) {
+        //we get the current people array
+        const peopleArray = days[i]; 
+        
+        //and init a var to get all of it's people (items) strings
+        let peopleListHTMLString = '';
 
-    //now, any of the 4 subgroups (arrays) can be handled;
+        //add one fixed line on the top so it will be the title of the lines bellow it
+        peopleListHTMLString += getTableTitle();
+        
+        //now, we iterate to each person inside this current people array to add to the 'let peopleListHTMLString' above. 
+        peopleArray.forEach(_person=>{
+            //adding it here:
+            peopleListHTMLString += getSinglePersonHTML(_person);
+        })
+        
+        //now that our 'peopleListHTMLString' string is complete, we can check it:
+        //console.log(peopleListHTMLString);
 
-    //reorganizing each of these 4 subarrays into a 'vaccineGroups' object;
-    const vaccineGroups = createVaccineGroup(arrayGroup[0], arrayGroup[1], arrayGroup[2], arrayGroup[3]);
+        //so, we pass this peopleListHTMLString as a parameter to get the full group html srting, a bigger string.
+        const dayHTMLString = getDayGroupHTML(i, peopleListHTMLString);
+        
+        //now we use this full day string (with all its peopleListHTMLString summed) to create a HTML Node.
+        const dayHTMLNode = createNode(dayHTMLString);
 
-    //new syntax to handle each of the 4 groups;
-    console.table(vaccineGroups.day1);
-    console.table(vaccineGroups.day2);
-    console.table(vaccineGroups.day3);
-    console.table(vaccineGroups.day4);
+        //now, we gotta append this node to a container
+        document.querySelector('body > section').appendChild(dayHTMLNode);
+
+        //and all of it will repeat in the next for loop, for each day (one to four);
+    }
 
 })
+
 

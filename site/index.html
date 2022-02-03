@@ -8,12 +8,85 @@
 </head>
 
     <style>
+        html,body{
+            padding: 0,; margin: 0;
+        }
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
         body{
-            display: grid;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 50px ;
+        }
+        
+        section{
+            border-radius: 20px;
+            width: 80vw;
+            height: fit-content;
+            background-color: #ccc;
+            --gap: 20px;
+            padding: var(--gap);
+            gap: var(--gap);
+            display: flex;
+            flex-direction: column;
             align-items: center;
         }
+        .dia{
+            border-radius:inherit;
+            width: 90%;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+        .dia h6{
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .lista-de-pessoas, .pessoa{
+            width: 100%;
+        }
+        .pessoa{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #fff ;
+            padding: 3px 0;
+        }
+        .pessoa span{
+            flex-grow: 0;
+            flex-shrink: 0;
+            width: 33%;
+        }
+        .pessoa span:nth-child(1){
+            text-align: left;
+        }
+        .pessoa span:nth-child(2){
+            text-align: center;
+        }
+        .pessoa span:nth-child(3){
+            text-align: right;
+        }
+        .titulo{
+            border: 0;
+            padding: 0;
+        }
+        .titulo span{
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
     </style>
+
     <body>
+
+        <section>
+
+        </section>
 
         <script type="module" src="js/scripts.js"></script>
     </body>
