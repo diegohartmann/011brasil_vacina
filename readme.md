@@ -21,7 +21,7 @@ Cada grupo será vacinado um dia, seguindo a ordem: Grupo 1, 2, 3 e depois o 4."
 2. Reordenar esse array por ordem de idade (mais velho pro mais novo);
 3. Reordenar esse array por ordem de trabalho prioritario (só passa pra frente se quem ta na frente nao for +60 anos);
 4. Dividir essa nova array em 4 arrays de 5 pessoas;
-##### Front-end com os dados, mostrando os resultados  => início: 00:00 e concluída as ______ (total: ~2h10min)
+##### Front-end com os dados, mostrando os resultados  => início: 00:00 e concluída as 01:20 (total: ~1h20min)
 5. Criar um front-end para que esses dados sejam mostrados sem ser no console;
 6. Hospedar o código (Vercel).
 
