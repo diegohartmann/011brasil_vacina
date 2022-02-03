@@ -68,19 +68,3 @@ Cada grupo será vacinado um dia, seguindo a ordem: Grupo 1, 2, 3 e depois o 4."
             "areaDeAtuacao": "Tecnologia"
         }
     ]
-
-
-# TESTE FRONT-END (FOR LIFE) - [(ver deploy)](https://011brasil-forlife.vercel.app)
-
-## 
-## ETAPAS FEITAS:
-1. 
-2. 
-3. 
-4. 
-
-## 
-## CONCLUSÃO:
-1. 
-2. 
-2. 
